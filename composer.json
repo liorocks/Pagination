@@ -1,7 +1,6 @@
 {
   "name": "landish/pagination",
   "description": "Laravel 5 Custom Pagination Presenter",
-  "version" : "0.0.0",
   "license": "MIT",
   "authors": [
     {
@@ -13,6 +12,5 @@
     "psr-4": {
       "Landish\\Pagination\\": "src/"
     }
-  },
-  "minimum-stability": "dev"
+  }
 }
