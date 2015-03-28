@@ -14,5 +14,5 @@
       "Landish\\Pagination\\": "src/"
     }
   },
-  "require": {}
+  "minimum-stability": "dev"
 }
