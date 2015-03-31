@@ -1,7 +1,5 @@
 # Landish/Pagination
 
-> Laravel 5 Custom Pagination Presenter 
-
 [![Latest Stable Version](https://poser.pugx.org/landish/pagination/v/stable.svg)](https://packagist.org/packages/landish/pagination) 
 [![Total Downloads](https://poser.pugx.org/landish/pagination/downloads.svg)](https://packagist.org/packages/landish/pagination) 
 [![Latest Unstable Version](https://poser.pugx.org/landish/pagination/v/unstable.svg)](https://packagist.org/packages/landish/pagination) 
