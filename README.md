@@ -1,11 +1,18 @@
 # Landish/Pagination
 
+> Laravel 5 Custom Pagination Presenter 
+
+[![Latest Stable Version](https://poser.pugx.org/landish/pagination/v/stable.svg)](https://packagist.org/packages/landish/pagination) 
+[![Total Downloads](https://poser.pugx.org/landish/pagination/downloads.svg)](https://packagist.org/packages/landish/pagination) 
+[![Latest Unstable Version](https://poser.pugx.org/landish/pagination/v/unstable.svg)](https://packagist.org/packages/landish/pagination) 
+[![License](https://poser.pugx.org/landish/pagination/license.svg)](https://packagist.org/packages/landish/pagination)
+
 [Laravel 5](http://laravel.com/) comes with [Pagination](http://laravel.com/docs/5.0/pagination) class, which is perfectly rendered to match [Bootstrap 3](http://getbootstrap.com/components/#pagination) styles. 
 
 This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: [Semantic UI](http://semantic-ui.com/collections/menu.html#pagination), [Zurb Foundation](http://foundation.zurb.com/docs/components/pagination.html) and [UIKit](http://getuikit.com/docs/pagination.html).
 
-
 ## Installation
+
 To install `landish/pagination` package, you have to run the following command in your Terminal, or Comand Promt:
 
 ```
@@ -92,3 +99,7 @@ With this package you can do it with following lines of code:
 ```
 {!! $items->appends(['key' => 'value'])->render(new App\Pagination($items))  !!}
 ```
+
+## License
+
+The Landish/Pagination package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
