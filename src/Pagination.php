@@ -24,11 +24,52 @@ class Pagination implements PresenterContract {
     protected $window;
 
     /**
-     * Create a new Bootstrap presenter instance.
+     * Pagination wrapper HTML.
      *
-     * @param  \Illuminate\Contracts\Pagination\Paginator  $paginator
-     * @param  \Illuminate\Pagination\UrlWindow|null  $window
-     * @return void
+     * @var string
+     */
+    protected $paginationWrapper = '<ul class="pagination">%s %s %s</ul>';
+
+    /**
+     * Available page wrapper HTML.
+     *
+     * @var string
+     */
+    protected $availablePageWrapper = '<li><a href="%s">%s</a></li>';
+
+    /**
+     * Get active page wrapper HTML.
+     *
+     * @var string
+     */
+    protected $activePageWrapper = '<li class="active"><span>%s</span></li>';
+
+    /**
+     * Get disabled page wrapper HTML.
+     *
+     * @var string
+     */
+    protected $disabledPageWrapper = '<li class="disabled"><span>%s</span></li>';
+
+    /**
+     * Previous button text.
+     *
+     * @var string
+     */
+    protected $previousButtonText = '&laquo;';
+
+    /**
+     * Next button text.
+     *
+     * @var string
+     */
+    protected $nextButtonText = '&raquo;';
+
+    /**
+     * Create a new Pagination presenter instance.
+     *
+     * @param  \Illuminate\Contracts\Pagination\Paginator $paginator
+     * @param  \Illuminate\Pagination\UrlWindow|null $window
      */
     public function __construct(PaginatorContract $paginator, UrlWindow $window = null)
     {
@@ -47,7 +88,61 @@ class Pagination implements PresenterContract {
     }
 
     /**
-     * Convert the URL window into Bootstrap HTML.
+     * Get pagination wrapper HTML.
+     *
+     * @return string
+     */
+    protected function getPaginationWrapperHTML() {
+        return $this->paginationWrapper;
+    }
+
+    /**
+     * Get available page wrapper HTML.
+     *
+     * @return string
+     */
+    protected function getAvailablePageWrapperHTML() {
+        return $this->availablePageWrapper;
+    }
+
+    /**
+     * Get active page wrapper HTML.
+     *
+     * @return string
+     */
+    protected function getActivePageWrapperHTML() {
+        return $this->activePageWrapper;
+    }
+
+    /**
+     * Get disabled page wrapper HTML.
+     *
+     * @return string
+     */
+    protected function getDisabledPageWrapperHTML() {
+        return $this->disabledPageWrapper;
+    }
+
+    /**
+     * Get previous button text.
+     *
+     * @return string
+     */
+    protected function getPreviousButtonText() {
+        return $this->previousButtonText;
+    }
+
+    /**
+     * Get next button text.
+     *
+     * @return string
+     */
+    protected function getNextButtonText() {
+        return $this->nextButtonText;
+    }
+
+    /**
+     * Convert the URL window into Pagination HTML.
      *
      * @return string
      */
@@ -56,7 +151,7 @@ class Pagination implements PresenterContract {
         if ($this->hasPages())
         {
             return sprintf(
-                '<ul class="pagination">%s %s %s</ul>',
+                $this->getPaginationWrapperHTML(),
                 $this->getPreviousButton(),
                 $this->getLinks(),
                 $this->getNextButton()
@@ -71,15 +166,11 @@ class Pagination implements PresenterContract {
      *
      * @param  string $url
      * @param  int $page
-     * @param  string|null $rel
-     * @param  string $class
      * @return string
      */
-    protected function getAvailablePageWrapper($url, $page, $rel = null, $class = '')
+    protected function getAvailablePageWrapper($url, $page)
     {
-        $rel = is_null($rel) ? '' : ' rel="'.$rel.'"';
-
-        return '<li class="'.$class.'"><a href="'.htmlentities($url).'"'.$rel.'>'.$page.'</a></li>';
+        return sprintf($this->getAvailablePageWrapperHTML(),$url, $page);
     }
 
     /**
@@ -90,7 +181,7 @@ class Pagination implements PresenterContract {
      */
     protected function getDisabledTextWrapper($text)
     {
-        return '<li class="disabled"><span>'.$text.'</span></li>';
+        return sprintf($this->getDisabledPageWrapperHTML(), $text);
     }
 
     /**
@@ -101,7 +192,7 @@ class Pagination implements PresenterContract {
      */
     protected function getActivePageWrapper($text)
     {
-        return '<li class="active"><span>'.$text.'</span></li>';
+        return sprintf($this->getActivePageWrapperHTML(), $text);
     }
 
     /**
@@ -139,60 +230,55 @@ class Pagination implements PresenterContract {
      *
      * @param  string $url
      * @param  int $page
-     * @param  string|null $rel
-     * @param  string $class
      * @return string
      */
-    protected function getPageLinkWrapper($url, $page, $rel = null, $class = '')
+    protected function getPageLinkWrapper($url, $page)
     {
         if ($page == $this->paginator->currentPage())
         {
             return $this->getActivePageWrapper($page);
         }
 
-        return $this->getAvailablePageWrapper($url, $page, $rel, $class);
+        return $this->getAvailablePageWrapper($url, $page);
     }
 
     /**
      * Get the previous page pagination element.
-     *
-     * @param  string $text
      * @return string
+     * @internal param string $text
      */
-    protected function getPreviousButton($text = '&laquo;')
+    protected function getPreviousButton()
     {
         // If the current page is less than or equal to one, it means we can't go any
         // further back in the pages, so we will render a disabled previous button
         // when that is the case. Otherwise, we will give it an active "status".
         if ($this->paginator->currentPage() <= 1) {
-            return $this->getDisabledTextWrapper($text);
+            return $this->getDisabledTextWrapper($this->getPreviousButtonText());
         }
 
         $url = $this->paginator->url(
             $this->paginator->currentPage() - 1
         );
 
-        return $this->getPageLinkWrapper($url, $text, 'prev');
+        return $this->getPageLinkWrapper($url, $this->getPreviousButtonText());
     }
 
     /**
      * Get the next page pagination element.
-     *
-     * @param  string $text
      * @return string
      */
-    protected function getNextButton($text = '&raquo;')
+    protected function getNextButton()
     {
         // If the current page is greater than or equal to the last page, it means we
         // can't go any further into the pages, as we're already on this last page
         // that is available, so we will make it the "next" link style disabled.
         if (!$this->paginator->hasMorePages()) {
-            return $this->getDisabledTextWrapper($text);
+            return $this->getDisabledTextWrapper($this->getNextButtonText());
         }
 
         $url = $this->paginator->url($this->paginator->currentPage() + 1);
 
-        return $this->getPageLinkWrapper($url, $text, 'next');
+        return $this->getPageLinkWrapper($url, $this->getNextButtonText());
     }
 
 }
