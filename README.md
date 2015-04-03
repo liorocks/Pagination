@@ -32,19 +32,20 @@ and run the `composer update` or `composer install` command.
 Add following lines of code in your `*.blade.php` file, where you want to dispay the pagination.
 
 For [Semantic UI](http://semantic-ui.com/):
-```
+
+```php
 {!! (new Landish\Pagination\SemanticUI($items))->render() !!}
 ```
 
 For [Zurb Foundation](http://foundation.zurb.com/):
 
-```
+```php
 {!! (new Landish\Pagination\ZurbFoundation($items))->render() !!}
 ```
 
 For [UIKit](http://getuikit.com/):
 
-```
+```php
 {!! (new Landish\Pagination\UIKit($items))->render() !!}
 ```
 
@@ -66,7 +67,7 @@ class Pagination extends SemanticUI {
 
 In that case, you only have to add the following code in your blade template files:
 
-```
+```php
 {!! (new App\Pagination($items))->render() !!}
 ```
 
@@ -76,7 +77,7 @@ And in future, if you decide to override the output of pagination elements, it w
 
 If you need to add additional wrappers to your pagination output, which will be displayed only if items have pages, then you can do it like this:
 
-```
+```php
 @if($items->hasPages())
 	<div class="pagination-wrapper">
     	<div class="pagination-wrapper-inner">
@@ -94,7 +95,7 @@ Of course, you are free to change the `.pagination-wrapper` and `.pagination-wra
 
 With this package you can do it with following lines of code:
 
-```
+```php
 {!! $items->appends(['key' => 'value'])->render(new App\Pagination($items))  !!}
 ```
 
