@@ -9,7 +9,7 @@
 
 This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: [Semantic UI](http://semantic-ui.com/collections/menu.html#pagination), [Zurb Foundation](http://foundation.zurb.com/docs/components/pagination.html) and [UIKit](http://getuikit.com/docs/pagination.html).
 
-With this package it is also very easy to create custom pagination HTML output.
+With this package it is also very easy to [create custom pagination](#create-custom-pagination) HTML output.
 
 ## Installation
 
