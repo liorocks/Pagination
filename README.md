@@ -11,6 +11,17 @@ This package gives you ability to change the display output of rendered paginati
 
 With this package it is also very easy to [create custom pagination](#create-custom-pagination) HTML output.
 
+## Table of Contents
+* [Installation](#installation)
+* [Usage](#usage)
+* [Usage - Recommended Way](#)
+* [Simple Pagination](#simple-pagination)
+* [Additional Wrappers](#additional-wrappers)
+* [Appending To Pagination Links](#appending-to-pagination-links)
+* [Create Custom Pagination](#create-custom-pagination)
+* [License](#license)
+
+
 ## Installation
 
 To install `landish/pagination` package, you have to run the following command in your Terminal, or Comand Promt:
@@ -57,7 +68,7 @@ For [UIKit](http://getuikit.com/):
 {!! (new Landish\Pagination\Simple\UIKit($items))->render() !!}
 ```
 
-## Usage ( Recommended )
+## Usage - Recommended Way
 
 If you display pagination on several pages of your web application and have to write to the output code in several files, then this is, what I would recommend to do:
 
