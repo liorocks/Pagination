@@ -14,7 +14,7 @@ With this package it is also very easy to [create custom pagination](#create-cus
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
-* [Usage - Recommended Way](#)
+* [Usage - Recommended Way](#usage---recommended-way)
 * [Simple Pagination](#simple-pagination)
 * [Additional Wrappers](#additional-wrappers)
 * [Appending To Pagination Links](#appending-to-pagination-links)
@@ -206,7 +206,7 @@ class PaginationHTML {
     }
 ```
 
-Simply extend the `Landish\Pagination\Pagination` class in your `app/pagination.php` file, just like I [recommended](#usage--recommended-) above and overwrite these properties:
+Simply extend the `Landish\Pagination\Pagination` class in your `app/pagination.php` file, just like I [recommended](#usage---recommended-way) above and overwrite these properties:
 
 ```php
 <?php namespace App;
