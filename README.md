@@ -130,6 +130,97 @@ With this package you can do it with following lines of code:
 {!! $items->appends(['key' => 'value'])->render(new App\Pagination($items))  !!}
 ```
 
+## Create Custom Pagination
+
+Creating custom pagination or extending `landish/pagination` package is very easy. 
+
+[`Landish\Pagination\PaginationHTML`](https://github.com/Landish/Pagination/blob/master/src/PaginationHTML.php) class contains the following properties:
+
+```php
+<?php namespace Landish\Pagination;
+
+class PaginationHTML {
+
+    /**
+     * Pagination wrapper HTML.
+     *
+     * @var string
+     */
+    protected $paginationWrapper = '<ul class="pagination">%s %s %s</ul>';
+
+    /**
+     * Available page wrapper HTML.
+     *
+     * @var string
+     */
+    protected $availablePageWrapper = '<li><a href="%s">%s</a></li>';
+
+    /**
+     * Get active page wrapper HTML.
+     *
+     * @var string
+     */
+    protected $activePageWrapper = '<li class="active"><span>%s</span></li>';
+
+    /**
+     * Get disabled page wrapper HTML.
+     *
+     * @var string
+     */
+    protected $disabledPageWrapper = '<li class="disabled"><span>%s</span></li>';
+
+    /**
+     * Previous button text.
+     *
+     * @var string
+     */
+    protected $previousButtonText = '&laquo;';
+
+    /**
+     * Next button text.
+     *
+     * @var string
+     */
+    protected $nextButtonText = '&raquo;';
+
+    /***
+     * "Dots" text.
+     *
+     * @var string
+     */
+    protected $dotsText = '...';
+    
+    ...
+    
+    }
+```
+
+Simply extend the `Landish\Pagination\Pagination` class in your `app/pagination.php` file, just like I [recommended](#usage--recommended-) above and overwrite these properties:
+
+```php
+<?php namespace App;
+
+use Landish\Pagination\Pagination as BasePagination;
+
+class Pagination extends BasePagination {
+	
+	/**
+     * Pagination wrapper HTML.
+     *
+     * @var string
+     */
+	protected $paginationWrapper = '<ol class="pagination-extended-css-class">%s %s %s</ol>';
+	
+	...
+}
+```
+
+After that, just simply place the following code in your blade template file.
+
+```php
+{!! (new App\Pagination($items))->render() !!}
+```
+
 ## License
 
 The Landish/Pagination package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
