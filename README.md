@@ -9,6 +9,8 @@
 
 This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: [Semantic UI](http://semantic-ui.com/collections/menu.html#pagination), [Zurb Foundation](http://foundation.zurb.com/docs/components/pagination.html) and [UIKit](http://getuikit.com/docs/pagination.html).
 
+With this package it is also very easy to create custom pagination HTML output.
+
 ## Installation
 
 To install `landish/pagination` package, you have to run the following command in your Terminal, or Comand Promt:
@@ -35,18 +37,24 @@ For [Semantic UI](http://semantic-ui.com/):
 
 ```php
 {!! (new Landish\Pagination\SemanticUI($items))->render() !!}
+// or add "\Simple" in namespace for "Simple Pagination"
+{!! (new Landish\Pagination\Simple\SemanticUI($items))->render() !!}
 ```
 
 For [Zurb Foundation](http://foundation.zurb.com/):
 
 ```php
 {!! (new Landish\Pagination\ZurbFoundation($items))->render() !!}
+// or add "\Simple" in namespace for "Simple Pagination"
+{!! (new Landish\Pagination\Simple\ZurbFoundation($items))->render() !!}
 ```
 
 For [UIKit](http://getuikit.com/):
 
 ```php
 {!! (new Landish\Pagination\UIKit($items))->render() !!}
+// or add "\Simple" in namespace for "Simple Pagination"
+{!! (new Landish\Pagination\Simple\UIKit($items))->render() !!}
 ```
 
 ## Usage ( Recommended )
@@ -55,10 +63,15 @@ If you display pagination on several pages of your web application and have to w
 
 Just create `Pagination.php` file in your `/app/` directory and paste the following code:
 
+> **Note:** This example is suitable for you, if you haven't change the [Laravel Application Namespace](http://laravel.com/docs/5.0/structure#namespacing-your-application), otherwise just use your custom namespace instead of `App`.
+
 ```php
 <?php namespace App;
 
 use Landish\Pagination\SemanticUI;
+
+// Uncomment bellow line, if you like to use "Simple Pagination"
+// use Landish\Pagination\Simple\SemanticUI;
 
 class Pagination extends SemanticUI {
 
@@ -72,6 +85,24 @@ In that case, you only have to add the following code in your blade template fil
 ```
 
 And in future, if you decide to override the output of pagination elements, it will be much more easier to change in `app/Pagination.php` file, rather then in several blade template files.
+
+## Simple Pagination
+
+[Laravel](http://laravel.com/docs/5.0/pagination) gives you ability to create "Simple Pagination", which will have only `Previous` and `Next` buttons, something like [Bootstrap](http://getbootstrap.com/components/#pagination-pager) has. 
+
+The `landish/pagination` package supports this kind of pagination for [Semantic UI](http://semantic-ui.com/collections/menu.html#pagination), [Zurb Foundation](http://foundation.zurb.com/docs/components/pagination.html) and [UIKit](http://getuikit.com/docs/pagination.html).
+
+In order to use, first call the [`simplePaginate()`](http://laravel.com/api/5.0/Illuminate/Database/Eloquent/Builder.html#method_simplePaginate) method on Eloquent Model.
+
+```php
+$items = User::where('votes', '>', 100)->simplePaginate(15);
+```
+
+And after that, add the `\Simple` suffix in namespace, when displaying the pagination output. Something like this:
+
+```php
+{!! (new Landish\Pagination\Simple\ZurbFoundation($items))->render() !!}
+```
 
 ## Additional Wrappers
 
