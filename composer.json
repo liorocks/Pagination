@@ -1,6 +1,7 @@
 {
   "name": "landish/pagination",
   "description": "Laravel 5 Custom Pagination Presenter",
+  "keywords": ["laravel", "pagination"],
   "license": "MIT",
   "authors": [
     {
