@@ -1,10 +1,10 @@
 # Landish/Pagination
 
 [![Build Status](https://travis-ci.org/Landish/Pagination.svg?branch=master)](https://travis-ci.org/Landish/Pagination)
-[![Latest Stable Version](https://poser.pugx.org/landish/pagination/v/stable.svg)](https://packagist.org/packages/landish/pagination) 
-[![Total Downloads](https://poser.pugx.org/landish/pagination/downloads.svg)](https://packagist.org/packages/landish/pagination) 
-[![Latest Unstable Version](https://poser.pugx.org/landish/pagination/v/unstable.svg)](https://packagist.org/packages/landish/pagination) 
-[![License](https://poser.pugx.org/landish/pagination/license.svg)](https://packagist.org/packages/landish/pagination)
+[![Latest Stable Version](https://poser.pugx.org/landish/pagination/v/stable)](https://packagist.org/packages/landish/pagination) 
+[![Total Downloads](https://poser.pugx.org/landish/pagination/downloads)](https://packagist.org/packages/landish/pagination) 
+[![Latest Unstable Version](https://poser.pugx.org/landish/pagination/v/unstable)](https://packagist.org/packages/landish/pagination) 
+[![License](https://poser.pugx.org/landish/pagination/license)](https://packagist.org/packages/landish/pagination)
 
 [Laravel 5](http://laravel.com/) comes with [Pagination](http://laravel.com/docs/5.0/pagination) class, which is perfectly rendered to match [Bootstrap 3](http://getbootstrap.com/components/#pagination) styles. 
 
