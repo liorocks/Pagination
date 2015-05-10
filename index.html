@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Pagination by Landish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Pagination</h1>
+      <h2 class="project-tagline">Laravel 5 Custom Pagination Presenter</h2>
+      <a href="https://github.com/Landish/Pagination" class="btn">View on GitHub</a>
+      <a href="https://github.com/Landish/Pagination/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Landish/Pagination/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="landishpagination" class="anchor" href="#landishpagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Landish/Pagination</h1>
+
+<p><a href="https://travis-ci.org/Landish/Pagination"><img src="https://travis-ci.org/Landish/Pagination.svg?branch=master" alt="Build Status"></a>
+<a href="https://packagist.org/packages/landish/pagination"><img src="https://poser.pugx.org/landish/pagination/v/stable" alt="Latest Stable Version"></a> 
+<a href="https://packagist.org/packages/landish/pagination"><img src="https://poser.pugx.org/landish/pagination/downloads" alt="Total Downloads"></a> 
+<a href="https://packagist.org/packages/landish/pagination"><img src="https://poser.pugx.org/landish/pagination/v/unstable" alt="Latest Unstable Version"></a> 
+<a href="https://packagist.org/packages/landish/pagination"><img src="https://poser.pugx.org/landish/pagination/license" alt="License"></a></p>
+
+<p><a href="http://laravel.com/">Laravel 5</a> comes with <a href="http://laravel.com/docs/5.0/pagination">Pagination</a> class, which is perfectly rendered to match <a href="http://getbootstrap.com/components/#pagination">Bootstrap 3</a> styles. </p>
+
+<p>This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: <a href="http://semantic-ui.com/collections/menu.html#pagination">Semantic UI</a>, <a href="http://foundation.zurb.com/docs/components/pagination.html">Zurb Foundation</a> and <a href="http://getuikit.com/docs/pagination.html">UIKit</a>.</p>
+
+<p>With this package it is also very easy to <a href="#create-custom-pagination">create custom pagination</a> HTML output.</p>
+
+<h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#usage---recommended-way">Usage - Recommended Way</a></li>
+<li><a href="#simple-pagination">Simple Pagination</a></li>
+<li><a href="#additional-wrappers">Additional Wrappers</a></li>
+<li><a href="#appending-to-pagination-links">Appending To Pagination Links</a></li>
+<li><a href="#create-custom-pagination">Create Custom Pagination</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>To install <code>landish/pagination</code> package, you have to run the following command in your Terminal, or Comand Promt:</p>
+
+<pre><code>composer require landish/pagination
+</code></pre>
+
+<p>Or manually add the following lines in to your <code>composer.json</code> file:</p>
+
+<div class="highlight highlight-json"><pre><span class="pl-s"><span class="pl-pds">"</span>require<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>landish/pagination<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>~1.0<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<p>and run the <code>composer update</code> or <code>composer install</code> command.</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Add following lines of code in your <code>*.blade.php</code> file, where you want to dispay the pagination.</p>
+
+<p>For <a href="http://semantic-ui.com/">Semantic UI</a>:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\</span><span class="pl-c1">SemanticUI</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span>
+<span class="pl-s1"><span class="pl-c">// or add "\Simple" in namespace for "Simple Pagination"</span></span>
+<span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\Simple\</span><span class="pl-c1">SemanticUI</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span></pre></div>
+
+<p>For <a href="http://foundation.zurb.com/">Zurb Foundation</a>:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\</span><span class="pl-c1">ZurbFoundation</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span>
+<span class="pl-s1"><span class="pl-c">// or add "\Simple" in namespace for "Simple Pagination"</span></span>
+<span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\Simple\</span><span class="pl-c1">ZurbFoundation</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span></pre></div>
+
+<p>For <a href="http://getuikit.com/">UIKit</a>:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\</span><span class="pl-c1">UIKit</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span>
+<span class="pl-s1"><span class="pl-c">// or add "\Simple" in namespace for "Simple Pagination"</span></span>
+<span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\Simple\</span><span class="pl-c1">UIKit</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span></pre></div>
+
+<h2>
+<a id="usage---recommended-way" class="anchor" href="#usage---recommended-way" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage - Recommended Way</h2>
+
+<p>If you display pagination on several pages of your web application and have to write to the output code in several files, then this is, what I would recommend to do:</p>
+
+<p>Just create <code>Pagination.php</code> file in your <code>/app/</code> directory and paste the following code:</p>
+
+<blockquote>
+<p><strong>Note:</strong> This example is suitable for you, if you haven't change the <a href="http://laravel.com/docs/5.0/structure#namespacing-your-application">Laravel Application Namespace</a>, otherwise just use your custom namespace instead of <code>App</code>.</p>
+</blockquote>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span>?<span class="pl-c1">php</span> <span class="pl-k">namespace</span> <span class="pl-en">App</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">Landish\Pagination\SemanticUI</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-c">// Uncomment bellow line, if you like to use "Simple Pagination"</span></span>
+<span class="pl-s1"><span class="pl-c">// use Landish\Pagination\Simple\SemanticUI;</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">Pagination</span> <span class="pl-k">extends</span> <span class="pl-e">SemanticUI</span> {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">}</span></pre></div>
+
+<p>In that case, you only have to add the following code in your blade template files:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">App\</span><span class="pl-c1">Pagination</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span></pre></div>
+
+<p>And in future, if you decide to override the output of pagination elements, it will be much more easier to change in <code>app/Pagination.php</code> file, rather then in several blade template files.</p>
+
+<h2>
+<a id="simple-pagination" class="anchor" href="#simple-pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Pagination</h2>
+
+<p><a href="http://laravel.com/docs/5.0/pagination">Laravel</a> gives you ability to create "Simple Pagination", which will have only <code>Previous</code> and <code>Next</code> buttons, something like <a href="http://getbootstrap.com/components/#pagination-pager">Bootstrap</a> has. </p>
+
+<p>The <code>landish/pagination</code> package supports this kind of pagination for <a href="http://semantic-ui.com/collections/menu.html#pagination">Semantic UI</a>, <a href="http://foundation.zurb.com/docs/components/pagination.html">Zurb Foundation</a> and <a href="http://getuikit.com/docs/pagination.html">UIKit</a>.</p>
+
+<p>In order to use, first call the <a href="http://laravel.com/api/5.0/Illuminate/Database/Eloquent/Builder.html#method_simplePaginate"><code>simplePaginate()</code></a> method on Eloquent Model.</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-smi">$items</span> <span class="pl-k">=</span> <span class="pl-c1">User</span><span class="pl-k">::</span>where(<span class="pl-s"><span class="pl-pds">'</span>votes<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>&gt;<span class="pl-pds">'</span></span>, <span class="pl-c1">100</span>)<span class="pl-k">-&gt;</span>simplePaginate(<span class="pl-c1">15</span>);</span></pre></div>
+
+<p>And after that, add the <code>\Simple</code> suffix in namespace, when displaying the pagination output. Something like this:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\Simple\</span><span class="pl-c1">ZurbFoundation</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span></pre></div>
+
+<h2>
+<a id="additional-wrappers" class="anchor" href="#additional-wrappers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Wrappers</h2>
+
+<p>If you need to add additional wrappers to your pagination output, which will be displayed only if items have pages, then you can do it like this:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-k">@</span><span class="pl-k">if</span>(<span class="pl-smi">$items</span><span class="pl-k">-&gt;</span>hasPages())</span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-c1">div</span> <span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>pagination-wrapper<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">        <span class="pl-k">&lt;</span><span class="pl-c1">div</span> <span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>pagination-wrapper-inner<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">            {<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">App\</span><span class="pl-c1">Pagination</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span>
+<span class="pl-s1">        <span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1">    <span class="pl-k">&lt;</span><span class="pl-k">/</span><span class="pl-c1">div</span><span class="pl-k">&gt;</span></span>
+<span class="pl-s1"><span class="pl-k">@</span><span class="pl-k">endif</span></span></pre></div>
+
+<p>Of course, you are free to change the <code>.pagination-wrapper</code> and <code>.pagination-wrapper-inner</code> CSS classes and the HTML.</p>
+
+<h2>
+<a id="appending-to-pagination-links" class="anchor" href="#appending-to-pagination-links" aria-hidden="true"><span class="octicon octicon-link"></span></a>Appending To Pagination Links</h2>
+
+<p><a href="http://laravel.com/docs/5.0/pagination#appending-to-pagination-links">Appending to pagination links</a> gives you ability to add extra query strings to your pagination links.</p>
+
+<p>With this package you can do it with following lines of code:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> <span class="pl-smi">$items</span><span class="pl-k">-&gt;</span>appends([<span class="pl-s"><span class="pl-pds">'</span>key<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>value<span class="pl-pds">'</span></span>])<span class="pl-k">-&gt;</span>render(<span class="pl-k">new</span> <span class="pl-c1">App\</span><span class="pl-c1">Pagination</span>(<span class="pl-smi">$items</span>))  <span class="pl-k">!!</span>}</span></pre></div>
+
+<h2>
+<a id="create-custom-pagination" class="anchor" href="#create-custom-pagination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create Custom Pagination</h2>
+
+<p>Creating custom pagination or extending <code>landish/pagination</code> package is very easy. </p>
+
+<p><a href="https://github.com/Landish/Pagination/blob/master/src/PaginationHTML.php"><code>Landish\Pagination\PaginationHTML</code></a> class contains the following properties:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span>?<span class="pl-c1">php</span> <span class="pl-k">namespace</span> <span class="pl-en">Landish\Pagination</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">PaginationHTML</span> {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">     * Pagination wrapper HTML.</span></span>
+<span class="pl-s1"><span class="pl-c">     *</span></span>
+<span class="pl-s1"><span class="pl-c">     * <span class="pl-k">@var</span> string</span></span>
+<span class="pl-s1"><span class="pl-c">     */</span></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$paginationWrapper</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;ul class="pagination"&gt;%s %s %s&lt;/ul&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">     * Available page wrapper HTML.</span></span>
+<span class="pl-s1"><span class="pl-c">     *</span></span>
+<span class="pl-s1"><span class="pl-c">     * <span class="pl-k">@var</span> string</span></span>
+<span class="pl-s1"><span class="pl-c">     */</span></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$availablePageWrapper</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;li&gt;&lt;a href="%s"&gt;%s&lt;/a&gt;&lt;/li&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">     * Get active page wrapper HTML.</span></span>
+<span class="pl-s1"><span class="pl-c">     *</span></span>
+<span class="pl-s1"><span class="pl-c">     * <span class="pl-k">@var</span> string</span></span>
+<span class="pl-s1"><span class="pl-c">     */</span></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$activePageWrapper</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;li class="active"&gt;&lt;span&gt;%s&lt;/span&gt;&lt;/li&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">     * Get disabled page wrapper HTML.</span></span>
+<span class="pl-s1"><span class="pl-c">     *</span></span>
+<span class="pl-s1"><span class="pl-c">     * <span class="pl-k">@var</span> string</span></span>
+<span class="pl-s1"><span class="pl-c">     */</span></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$disabledPageWrapper</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;li class="disabled"&gt;&lt;span&gt;%s&lt;/span&gt;&lt;/li&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">     * Previous button text.</span></span>
+<span class="pl-s1"><span class="pl-c">     *</span></span>
+<span class="pl-s1"><span class="pl-c">     * <span class="pl-k">@var</span> string</span></span>
+<span class="pl-s1"><span class="pl-c">     */</span></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$previousButtonText</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&amp;laquo;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">     * Next button text.</span></span>
+<span class="pl-s1"><span class="pl-c">     *</span></span>
+<span class="pl-s1"><span class="pl-c">     * <span class="pl-k">@var</span> string</span></span>
+<span class="pl-s1"><span class="pl-c">     */</span></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$nextButtonText</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&amp;raquo;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/***</span></span>
+<span class="pl-s1"><span class="pl-c">     * "Dots" text.</span></span>
+<span class="pl-s1"><span class="pl-c">     *</span></span>
+<span class="pl-s1"><span class="pl-c">     * @var string</span></span>
+<span class="pl-s1"><span class="pl-c">     */</span></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$dotsText</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>...<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">...</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    }</span></pre></div>
+
+<p>Simply extend the <code>Landish\Pagination\Pagination</code> class in your <code>app/pagination.php</code> file, just like I <a href="#usage---recommended-way">recommended</a> above and overwrite these properties:</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1"><span class="pl-k">&lt;</span>?<span class="pl-c1">php</span> <span class="pl-k">namespace</span> <span class="pl-en">App</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">Landish\Pagination\Pagination</span> <span class="pl-k">as</span> <span class="pl-c1">BasePagination</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">Pagination</span> <span class="pl-k">extends</span> <span class="pl-e">BasePagination</span> {</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c">/**</span></span>
+<span class="pl-s1"><span class="pl-c">     * Pagination wrapper HTML.</span></span>
+<span class="pl-s1"><span class="pl-c">     *</span></span>
+<span class="pl-s1"><span class="pl-c">     * <span class="pl-k">@var</span> string</span></span>
+<span class="pl-s1"><span class="pl-c">     */</span></span>
+<span class="pl-s1">    <span class="pl-k">protected</span> <span class="pl-smi">$paginationWrapper</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>&lt;ol class="pagination-extended-css-class"&gt;%s %s %s&lt;/ol&gt;<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">...</span></span>
+<span class="pl-s1">}</span></pre></div>
+
+<p>After that, just simply place the following code in your blade template file.</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">App\</span><span class="pl-c1">Pagination</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span></pre></div>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The Landish/Pagination package is open-sourced software licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Landish/Pagination">Pagination</a> is maintained by <a href="https://github.com/Landish">Landish</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
