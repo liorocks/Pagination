@@ -16,11 +16,22 @@ class MaterializePaginationTest extends PHPUnit_Framework_TestCase
 
     parent::__construct();
 
-    for ($i = 1; $i <= 10; $i++) {
+    for ($i = 1; $i <= 13; $i++) {
       $this->array[$i] = 'item'.$i;
     }
 
     $this->dir = __DIR__.'/fixtures/materialize/';
+  }
+
+  public function testMaterializePresenterCanGenerateLinksForSlider()
+  {
+    $p = new LengthAwarePaginator($this->array, count($this->array), 1, 7);
+    $presenter = new MaterializePresenter($p);
+
+    $this->assertEquals(
+      trim(file_get_contents($this->dir.'slider.html')),
+      $presenter->render()
+    );
   }
 
   public function testMaterializePresenterCanGenerateLinksForTooCloseToBegining()
@@ -36,7 +47,7 @@ class MaterializePaginationTest extends PHPUnit_Framework_TestCase
 
   public function testMaterializePresenterCanGenerateLinksForTooCloseToEnding()
   {
-    $p = new LengthAwarePaginator($this->array, count($this->array), 1, 9);
+    $p = new LengthAwarePaginator($this->array, count($this->array), 1, 12);
     $presenter = new MaterializePresenter($p);
 
     $this->assertEquals(
@@ -47,7 +58,7 @@ class MaterializePaginationTest extends PHPUnit_Framework_TestCase
 
   public function testMaterializePresenterCanGenerateLinksForLastPage()
   {
-    $p = new LengthAwarePaginator($this->array, count($this->array), 1, 10);
+    $p = new LengthAwarePaginator($this->array, count($this->array), 1, 13);
     $presenter = new MaterializePresenter($p);
 
     $this->assertEquals(
