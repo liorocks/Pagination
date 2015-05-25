@@ -30,7 +30,7 @@
 
 <p><a href="http://laravel.com/">Laravel 5</a> comes with <a href="http://laravel.com/docs/5.0/pagination">Pagination</a> class, which is perfectly rendered to match <a href="http://getbootstrap.com/components/#pagination">Bootstrap 3</a> styles. </p>
 
-<p>This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: <a href="http://semantic-ui.com/collections/menu.html#pagination">Semantic UI</a>, <a href="http://foundation.zurb.com/docs/components/pagination.html">Zurb Foundation</a> and <a href="http://getuikit.com/docs/pagination.html">UIKit</a>.</p>
+<p>This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: <a href="http://semantic-ui.com/collections/menu.html#pagination">Semantic UI</a>, <a href="http://foundation.zurb.com/docs/components/pagination.html">Zurb Foundation</a>, <a href="http://getuikit.com/docs/pagination.html">UIKit</a> and <a href="http://materializecss.com/">Materialize</a>.</p>
 
 <p>With this package it is also very easy to <a href="#create-custom-pagination">create custom pagination</a> HTML output.</p>
 
@@ -86,6 +86,12 @@
 <div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\</span><span class="pl-c1">UIKit</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span>
 <span class="pl-s1"><span class="pl-c">// or add "\Simple" in namespace for "Simple Pagination"</span></span>
 <span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\Simple\</span><span class="pl-c1">UIKit</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span></pre></div>
+
+<p>For <a href="http://materializecss.com/">Materialize</a> (Contributed by <a href="https://github.com/arandilopez">@arandilopez</a>):</p>
+
+<div class="highlight highlight-php"><pre><span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\</span><span class="pl-c1">Materialize</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span>
+<span class="pl-s1"><span class="pl-c">// or add "\Simple" in namespace for "Simple Pagination"</span></span>
+<span class="pl-s1">{<span class="pl-k">!!</span> (<span class="pl-k">new</span> <span class="pl-c1">Landish\Pagination\Simple\</span><span class="pl-c1">Materialize</span>(<span class="pl-smi">$items</span>))<span class="pl-k">-&gt;</span>render() <span class="pl-k">!!</span>}</span></pre></div>
 
 <h2>
 <a id="usage---recommended-way" class="anchor" href="#usage---recommended-way" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage - Recommended Way</h2>
