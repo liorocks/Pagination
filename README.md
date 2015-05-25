@@ -8,7 +8,7 @@
 
 [Laravel 5](http://laravel.com/) comes with [Pagination](http://laravel.com/docs/5.0/pagination) class, which is perfectly rendered to match [Bootstrap 3](http://getbootstrap.com/components/#pagination) styles. 
 
-This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: [Semantic UI](http://semantic-ui.com/collections/menu.html#pagination), [Zurb Foundation](http://foundation.zurb.com/docs/components/pagination.html) and [UIKit](http://getuikit.com/docs/pagination.html).
+This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: [Semantic UI](http://semantic-ui.com/collections/menu.html#pagination), [Zurb Foundation](http://foundation.zurb.com/docs/components/pagination.html), [UIKit](http://getuikit.com/docs/pagination.html) and [Materialize](http://materializecss.com/).
 
 With this package it is also very easy to [create custom pagination](#create-custom-pagination) HTML output.
 
@@ -67,6 +67,14 @@ For [UIKit](http://getuikit.com/):
 {!! (new Landish\Pagination\UIKit($items))->render() !!}
 // or add "\Simple" in namespace for "Simple Pagination"
 {!! (new Landish\Pagination\Simple\UIKit($items))->render() !!}
+```
+
+For [Materialize](http://materializecss.com/) (Contributed by [@arandilopez](https://github.com/arandilopez)):
+
+```php
+{!! (new Landish\Pagination\Materialize($items))->render() !!}
+// or add "\Simple" in namespace for "Simple Pagination"
+{!! (new Landish\Pagination\Simple\Materialize($items))->render() !!}
 ```
 
 ## Usage - Recommended Way
