@@ -28,13 +28,13 @@ class Materialize extends Pagination {
      *
      * @var string
      */
-    protected $previousButtonText = '<i class="mdi-navigation-chevron-left"></i>';
+    protected $previousButtonText = '<i class="material-icons">keyboard_arrow_left</i>';
 
     /**
      * Next button text.
      *
      * @var string
      */
-    protected $nextButtonText = '<i class="mdi-navigation-chevron-right"></i>';
+    protected $nextButtonText = '<i class="material-icons">keyboard_arrow_right</i>';
 
 }
