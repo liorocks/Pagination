@@ -28,7 +28,7 @@ With this package it is also very easy to [create custom pagination](#create-cus
 To install `landish/pagination` package, you have to run the following command in your Terminal, or Comand Promt:
 
 ```
-composer require landish/pagination
+$ composer require landish/pagination
 ```
 
 Or manually add the following lines in to your `composer.json` file:
