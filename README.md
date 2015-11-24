@@ -6,7 +6,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/landish/pagination/v/unstable)](https://packagist.org/packages/landish/pagination) 
 [![License](https://poser.pugx.org/landish/pagination/license)](https://packagist.org/packages/landish/pagination)
 
-[Laravel 5](http://laravel.com/) comes with [Pagination](http://laravel.com/docs/5.0/pagination) class, which is perfectly rendered to match [Bootstrap 3](http://getbootstrap.com/components/#pagination) styles. 
+[Laravel 5](http://laravel.com/) comes with [Pagination](http://laravel.com/docs/pagination) class, which is perfectly rendered to match [Bootstrap 3](http://getbootstrap.com/components/#pagination) styles. 
 
 This package gives you ability to change the display output of rendered pagination elements for Front-end Frameworks, such as: [Semantic UI](http://semantic-ui.com/collections/menu.html#pagination), [Zurb Foundation](http://foundation.zurb.com/docs/components/pagination.html), [UIKit](http://getuikit.com/docs/pagination.html) and [Materialize](http://materializecss.com/).
 
@@ -215,7 +215,7 @@ class PaginationHTML {
     }
 ```
 
-Simply extend the `Landish\Pagination\Pagination` class in your `app/pagination.php` file, just like I [recommended](#usage---recommended-way) above and overwrite these properties:
+Simply extend the `Landish\Pagination\Pagination` class in your `app/Pagination.php` file, just like I [recommended](#usage---recommended-way) above and overwrite these properties:
 
 ```php
 <?php namespace App;
