@@ -7,18 +7,14 @@ class MaterialDesignLite extends Pagination {
      * Use class 'Pagination__container' for extra container styling, 'Pagination__nav' for extra nav styling
      * @var string
      */
-    protected $paginationWrapper = '<div class="mdl-grid Pagination__container" style="display: flex;justify-content: center;">' .
-            '<nav style="display: flex;justify-content: center;" class="mdl-cell mdl-cell--12-col Pagination__nav">%s %s %s</nav>' .
-        '</div>';
+    protected $paginationWrapper = '<div class="mdl-grid Pagination__container" style="display: flex;justify-content: center;"><nav style="display: flex;justify-content: center;" class="mdl-cell mdl-cell--12-col Pagination__nav">%s %s %s</nav></div>';
 
     /**
      * Available page wrapper HTML.
      * Use class 'Pagination__available-page-button' for extra available page button styling
      * @var string
      */
-    protected $availablePageWrapper = '<a href="%s">' .
-            '<button class="mdl-button mdl-js-button mdl-button--colored Pagination__available-page-button">%s</button>' .
-        '</a>';
+    protected $availablePageWrapper = '<a href="%s"><button class="mdl-button mdl-js-button mdl-button--colored Pagination__available-page-button">%s</button></a>';
 
     /**
      * Get active page wrapper HTML.
