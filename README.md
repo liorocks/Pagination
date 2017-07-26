@@ -1,5 +1,7 @@
 # Landish/Pagination
 
+> Note: Works with only **5.0**, **5.1** and **5.2** versions. **5.3** and above it does **not** work. PR's welcome!
+
 [![Build Status](https://travis-ci.org/Landish/Pagination.svg?branch=master)](https://travis-ci.org/Landish/Pagination)
 [![Latest Stable Version](https://poser.pugx.org/landish/pagination/v/stable)](https://packagist.org/packages/landish/pagination) 
 [![Total Downloads](https://poser.pugx.org/landish/pagination/downloads)](https://packagist.org/packages/landish/pagination) 
